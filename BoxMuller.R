@@ -12,10 +12,3 @@ BoxMuller <- function(nsim, miu, sigma){
   res <- data.frame(BoxMuller1=X, Normal = X.normal)
   return(res)
 }
-
-require(ggplot2)
-ggplot(res,aes(x=Normal)) +
-  geom_histogram(aes(x=BoxMuller1,y=..density..),binwidth=.5,colour="black",fill="white") +
-  stat_function(fun = dnorm, args = list(mean=miu,sd=sigma), aes(colour = "Normal"), fill = "#FF6666")
-
-summary(res)
